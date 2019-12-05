@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Room</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="str_title">Title</string>
+</resources>
