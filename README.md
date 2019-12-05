@@ -43,7 +43,7 @@ task clean(type: Delete) {
 
 ```
 
-## DataBinding
+## DataBinding (App module gradle)
 
 ```
 android {
