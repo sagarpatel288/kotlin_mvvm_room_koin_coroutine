@@ -1,5 +1,28 @@
 # kotlin_mvvm_room_koin_coroutine
 
+## PlugIns
+
+```
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+```
+
+## DataBinding
+
+```
+android {
+    ...
+
+    dataBinding {
+        enabled = true
+    }
+
+    ...
+}
+```
+
 ## Dependencies
 
 ```
