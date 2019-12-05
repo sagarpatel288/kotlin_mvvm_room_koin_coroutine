@@ -1,6 +1,6 @@
 package com.example.android.room.view.main
 
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +15,7 @@ import com.example.android.room.view.detail.DetailActivity
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class UserListAdapter(private val context: Context, private var userList: ArrayList<User>) :
+class UserListAdapter(private val context: Activity, private var userList: ArrayList<User>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(), KoinComponent {
 
     private val userDao: UserDao by inject()
@@ -68,7 +68,7 @@ class UserListAdapter(private val context: Context, private var userList: ArrayL
                     userDao.delete(user)
                 }
             } else {
-                context.startActivity(intent)
+                context.startActivityForResult(intent, Constants.DETAIL)
             }
         }
     }
