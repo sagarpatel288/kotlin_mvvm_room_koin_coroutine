@@ -11,7 +11,7 @@ abstract class BaseActivity<VDB : ViewDataBinding, BVM : BaseViewModel>(@LayoutR
     AppCompatActivity() {
 
     abstract val viewModel: BVM
-    protected lateinit var binding: VDB
+    private lateinit var binding: VDB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
