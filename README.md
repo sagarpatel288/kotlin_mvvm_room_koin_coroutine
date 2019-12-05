@@ -1,14 +1,5 @@
 # kotlin_mvvm_room_koin_coroutine
 
-## PlugIns
-
-```
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: "kotlin-kapt"
-```
-
 ## Project level gradle
 
 ```
@@ -41,6 +32,15 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+```
+
+## PlugIns (App module gradle)
+
+```
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
 ```
 
 ## DataBinding (App module gradle)
