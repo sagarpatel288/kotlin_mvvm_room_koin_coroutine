@@ -20,7 +20,7 @@ class UserListAdapter(private val context: Activity, private var userList: Array
 
     private val userDao: UserDao by inject()
 
-    open fun setList(userList: ArrayList<User>) {
+    fun setList(userList: ArrayList<User>) {
         this.userList = userList
         notifyDataSetChanged()
     }
