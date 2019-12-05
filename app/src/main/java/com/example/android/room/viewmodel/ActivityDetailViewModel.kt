@@ -21,15 +21,16 @@ class ActivityDetailViewModel : BaseViewModel() {
 
      fun onSaveClicked(user: User) {
         if (user.title == null || user.title!!.isBlank()) {
-            error.postValue("Title cannot be blank")
+            error.value = ("Title cannot be blank")
             return
         }
-        state.postValue(DetailScreenStates.Loading)
-        if (user.id > 1) {
+        state.value = (DetailScreenStates.Loading)
+
+        if (userDao.getUserById(user.id) != null) {
             userDao.updateUser(user.id, user.title!!)
         } else {
             userDao.insert(user)
         }
-         state.postValue(DetailScreenStates.Success(user))
+         state.value = (DetailScreenStates.Success(user))
     }
 }

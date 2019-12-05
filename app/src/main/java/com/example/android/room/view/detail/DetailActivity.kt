@@ -1,6 +1,7 @@
 package com.example.android.room.view.detail
 
 import android.app.Activity
+import android.content.Intent
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.observe
@@ -25,10 +26,10 @@ class DetailActivity :
         if (intent!!.hasExtra(Constants.PARCEL)) {
             val user: User? = intent!!.getParcelableExtra(Constants.PARCEL) as? User
             if (user != null) {
-                viewModel.user.postValue(user)
+                viewModel.user.value = (user)
             }
         } else {
-            viewModel.user.postValue(User("", 0))
+            viewModel.user.value = (User(""))
         }
         setObserver()
     }
@@ -37,6 +38,15 @@ class DetailActivity :
         viewModel.state().observe(this) { state ->
             onChangeState(state)
         }
+        viewModel.user.observe(this) { user ->
+            onChangeUser(user)
+        }
+    }
+
+    private fun onChangeUser(user: User?) {
+        if (user != null && !user.title.isNullOrEmpty()) {
+            viewModel.error.value = null
+        }
     }
 
     private fun onChangeState(state: DetailScreenStates) {
@@ -44,7 +54,7 @@ class DetailActivity :
             disableViews(myBinding!!.viewFabSave)
         }
         if (state is DetailScreenStates.Success) {
-            setResult(Activity.RESULT_OK)
+            setResult(Activity.RESULT_OK, Intent())
             finish()
         }
     }

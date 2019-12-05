@@ -58,6 +58,9 @@ dependencies {
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
 
+    //Room debug db
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
     // Koin for Android
     implementation "org.koin:koin-android:$koin_version"
     // Koin Android ViewModel features

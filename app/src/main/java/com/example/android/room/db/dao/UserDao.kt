@@ -8,11 +8,14 @@ import com.example.android.room.model.User
 interface UserDao : BaseDao<User> {
 
     @Query("select * from User")
-    fun getAllUsers(): List<User>
+    fun getAllUsers(): List<User>?
 
     @Query("update User set title =:title where id in (:id)")
     fun updateUser(id: Long, title: String)
 
     @Query("delete from User")
     fun deleteAllUsers()
+
+    @Query("select * from User where id =:id")
+    fun getUserById(id: Long): User?
 }
