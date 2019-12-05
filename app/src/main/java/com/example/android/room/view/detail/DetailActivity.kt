@@ -1,5 +1,7 @@
 package com.example.android.room.view.detail
 
+import android.app.Activity
+import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.observe
 import com.example.android.room.R
@@ -26,7 +28,7 @@ class DetailActivity :
                 viewModel.user.postValue(user)
             }
         } else {
-            viewModel.user.postValue(User(""))
+            viewModel.user.postValue(User("", 0))
         }
         setObserver()
     }
@@ -38,8 +40,18 @@ class DetailActivity :
     }
 
     private fun onChangeState(state: DetailScreenStates) {
+        if (state is DetailScreenStates.Loading) {
+            disableViews(myBinding!!.viewFabSave)
+        }
         if (state is DetailScreenStates.Success) {
+            setResult(Activity.RESULT_OK)
             finish()
+        }
+    }
+
+    private fun disableViews(vararg views: View?) {
+        if (views.isNotEmpty()) {
+            views.forEach { view -> view!!.isEnabled.not() }
         }
     }
 }

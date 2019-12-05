@@ -7,4 +7,4 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity
-data class User(var title: String?, @PrimaryKey(autoGenerate = true) var id: Long = 1) : Parcelable
+data class User(var title: String?, @PrimaryKey(autoGenerate = true) var id: Long) : Parcelable
