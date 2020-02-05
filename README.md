@@ -43,7 +43,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: "kotlin-kapt"
 ```
 
-## DataBinding (App module gradle)
+## DataBinding and Java 1.8 Support (App module gradle)
 
 ```
 android {
@@ -51,6 +51,15 @@ android {
 
     dataBinding {
         enabled = true
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
     ...
