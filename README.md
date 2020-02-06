@@ -85,6 +85,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$life_cycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$life_cycle_version" // For Kotlin use kapt instead of annotationProcessor
     implementation "androidx.activity:activity-ktx:1.1.0-rc02"
+    
+    //Google
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     // Room
     implementation "androidx.room:room-runtime:$room_version"
